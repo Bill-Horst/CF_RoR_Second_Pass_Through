@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
 
   def index
+    @orders = Order.includes(:product).all
   end
 
   def show
-    @order_product = "Sup?"
+    @order = Order.find(params[:id])
   end
 
   def new
