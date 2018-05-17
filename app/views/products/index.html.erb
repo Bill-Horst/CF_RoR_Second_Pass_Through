@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Products</h1>
+<%= form_with(url: products_path, method: 'get', local: true) do |form| %>
+  <%= form.label :q, 'Search for:' %>
+  <%= form.text_field :q, id: 'q', value: params[:q] %>
+  <%= form.submit 'Search' %>
+<% end %>
 
 <table>
   <thead>
