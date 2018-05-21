@@ -4,17 +4,17 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
-    #   user ||= User.new # guest user (not logged in)
-    #   if user.admin?
-    #     can :manage, :all
-    #   else
-    #     can :read, :all
-    #   end
+      user ||= User.new # guest user (not logged in)
+      if user.admin?
+        can :manage, :all
+      else
+        can :manage, User, id: user.id # a user can manage (do everything to) any user with the id of the user's id
+        can :read, Order, user_id: user.id # a user can only read an order where the order id equals the user's id... to remove ability to view orders index, remove the route
+        can :manage, Product
+      end
 
-    user ||= User.new # guest user (not logged in)
-    can :manage, User, id: user.id # a user can manage (do everything to) any user with the id of the user's id
-    can :read, Order, user_id: user.id # a user can only read an order where the order id equals the user's id... to remove ability to view orders index, remove the route
-    can :manage, Product
+    # user ||= User.new # guest user (not logged in)
+
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
