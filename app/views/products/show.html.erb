@@ -1,29 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div style="width: 90%; margin: auto; overflow: hidden;">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @product.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @product.description %>
+  </p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
+  <p>
+    <strong>Image url:</strong>
+    <%= @product.image_url %>
+  </p>
 
-<p>
-  <strong>Color:</strong>
-  <%= @product.color %>
-</p>
+  <p>
+    <strong>Color:</strong>
+    <%= @product.color %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @product.price %>
+  </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+  <div style="margin-left: 20px;">
+    <%= @product %>
+
+    <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
+
+    <%= render 'new_comment' %>
+
+    <%= render 'comments' %>
+  </div>
+
+  <%= link_to 'Edit', edit_product_path(@product) %> |
+  <%= link_to 'Back', products_path %>
+</div>

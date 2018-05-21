@@ -14,7 +14,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
     can :manage, User, id: user.id # a user can manage (do everything to) any user with the id of the user's id
     can :read, Order, user_id: user.id # a user can only read an order where the order id equals the user's id... to remove ability to view orders index, remove the route
-    can :read, Product
+    can :manage, Product
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
