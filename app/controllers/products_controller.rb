@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!
-    load_and_authorize_resource
+  before_action :authenticate_user!
+  load_and_authorize_resource
 
   # GET /products
   # GET /products.json
@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
+    # byebug
   end
 
   # GET /products/1

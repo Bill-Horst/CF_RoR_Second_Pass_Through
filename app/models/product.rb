@@ -21,4 +21,3 @@ class Product < ApplicationRecord
   end
 
 end
-# I'm on lesson 5.2 about 3/5 down the lesson about to start the section called "Product Form"

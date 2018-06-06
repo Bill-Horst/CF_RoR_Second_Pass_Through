@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<% cache (cache_key_for_products) do %>
+
+
 <h1>Products</h1>
 <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
   <%= form.label :q, 'Search for:' %>
@@ -27,3 +30,5 @@
 <br>
 
 <%= link_to 'New Product', new_product_path %>
+
+<% end %>

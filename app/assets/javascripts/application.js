@@ -13,6 +13,8 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery3
+//= require ez
 //= require jquery.raty
 //= require jquery.raty.js
+
 //= require_tree .
