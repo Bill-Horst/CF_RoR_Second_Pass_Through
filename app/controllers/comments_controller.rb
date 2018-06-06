@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to @product, notice: 'Review was created.' }
         format.json { render :show, status: :created, location: @product }
         format.js
+        ActionCable.server.broadcast 'product_channel', comment: @comment, average_rating: @comment.product.average_rating
       else
         format.html { redirect_to @product, alert: 'Review not saved.' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }

@@ -32,32 +32,34 @@
   <% cache @product do %>
   <h2><%= @product.name %></h2>
   <p><%= @product.description %></h2>
-  <% end %>
+    <% end %>
 
-  <p>
-    <strong>Price:</strong>
-    <%= @product.price %>
-  </p>
+    <p>
+      <strong>Price:</strong>
+      <%= @product.price %>
+    </p>
 
-  <p>
-    <%= @product.average_rating %>
-  </p>
+    <p>
+      <%= @product.average_rating %>
+    </p>
 
-  <%= form_with(url: '/payments/create') do |form| %>
-  <%= hidden_field_tag(:product_id, @product.id) %>
-  <%= render partial: "shared/stripe_checkout_button" %>
-  <% end %>
+    <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
 
-  <div style="margin-left: 20px;">
+    <%= form_with(url: '/payments/create') do |form| %>
+    <%= hidden_field_tag(:product_id, @product.id) %>
+    <%= render partial: "shared/stripe_checkout_button" %>
+    <% end %>
 
-    <p>Average Rating: <div class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></div> </p>
+    <div style="margin-left: 20px;">
 
-    <%= render 'new_comment' %>
+      <p>Average Rating: <div class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></div> </p>
 
-    <%= render 'comments' %>
+      <%= render 'new_comment' %>
 
+      <%= render 'comments' %>
+
+    </div>
+
+    <%= link_to 'Edit', edit_product_path(@product) %> |
+    <%= link_to 'Back', products_path %>
   </div>
-
-  <%= link_to 'Edit', edit_product_path(@product) %> |
-  <%= link_to 'Back', products_path %>
-</div>
