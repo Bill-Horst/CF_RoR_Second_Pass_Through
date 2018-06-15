@@ -1,7 +1,7 @@
 class ProductChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    stream_from "product_channel"
+    # stream_from "product_channel"
 
   end
 
@@ -10,7 +10,7 @@ class ProductChannel < ApplicationCable::Channel
   end
 
   def listen(data)
-    # stop_all_streams
-    # stream_for data["product_id"]
+    stop_all_streams
+    stream_for data["product_id"]
   end
 end
