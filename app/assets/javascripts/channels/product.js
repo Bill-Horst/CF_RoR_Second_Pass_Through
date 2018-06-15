@@ -12,9 +12,9 @@ App.product = App.cable.subscriptions.create("ProductChannel", {
     // $(".alert.alert-info").show();
     // console.log(data);
     $(".alert.alert-info").show();
-    $('.product-reviews').prepend(data.comment);
-    $("#average-rating").attr('data-score', data.average_rating);
-    refreshRating();
+    // $('.product-reviews').prepend(data.comment);
+    // $("#average-rating").attr('data-score', data.average_rating);
+    // refreshRating();
   },
 
   listen_to_comments: function() {
@@ -24,6 +24,6 @@ App.product = App.cable.subscriptions.create("ProductChannel", {
   }
 });
 
-$(document).on('turbolinks:load', function() {
-  App.product.listen_to_comments();
-});
+// $(document).on('turbolinks:load', function() {
+//   App.product.listen_to_comments();
+// });
